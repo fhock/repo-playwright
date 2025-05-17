@@ -1,0 +1,8 @@
+# Playwright 
+# .env harusnya di ignore disini, ini sebagai contoh saja .env tidak di gitignore
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+screenshots/
