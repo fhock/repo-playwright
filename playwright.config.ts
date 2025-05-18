@@ -35,8 +35,13 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'cleanCategory',
+      testMatch: 'cleanCategory.setup.ts'
+    },
+    {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      teardown: 'cleanCategory'
     },
 
     // {
