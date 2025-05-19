@@ -8,7 +8,7 @@ interface Parameters {
 }
   
 export const config: Parameters = {
-    urlLogin: process?.env?.URL_LOGIN || 'https://kasirdemo.vercel.app/login',
+    urlLogin: process?.env?.URL_LOGIN || '',
     usernameAdmin: process?.env?.USERNAME_ADMIN || '',
     passwordAdmin: process?.env?.PASSWORD_ADMIN || ''  
 }
