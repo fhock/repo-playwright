@@ -27,6 +27,6 @@ export class NavigationPage{
         await this.page.locator('[aria-haspopup="menu"]').filter({has: this.page.locator('[data-icon="ellipsis-v"]')}).click();
         await this.page.locator('[role="menu"]').filter({hasText: "hapus"}).click();
         await this.page.getByRole('button', { name: 'Delete' }).click();
-        await this.page.waitForLoadState('networkidle');
+        await this.page.waitForTimeout(1000);
     }
 }

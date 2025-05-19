@@ -24,8 +24,8 @@ test.describe('Scenario Category Feature', () => {
         await pm.navigateTo().addCategory();
         await pm.fillFormLayoutsPage().createNewProduct('Add', 'Add Category Description');
         // assertion
-        await expect(page.locator('[role="alert"]').filter({hasText:'success'})).toBeVisible();
-        await expect(page.locator('[role="alert"]').filter({hasText:'item ditambahkan'})).toBeVisible();
+        await expect(page.locator('#chakra-toast-manager-top-right [role="alert"]').filter({ hasText: 'success' })).toBeVisible();
+        await expect(page.locator('#chakra-toast-manager-top-right [role="alert"]').filter({ hasText: 'item ditambahkan' })).toBeVisible();
         await pm.navigateTo().reloadPage();
         await page.screenshot({ path: 'screenshots/categorysuccedadd.png', fullPage: true });
     });
@@ -49,15 +49,14 @@ test.describe('Scenario Category Feature', () => {
         const pm = new PageManager (page);
         await pm.navigateTo().addCategory();
         await pm.fillFormLayoutsPage().createNewProduct('Delete', 'Delete Description');
-        await expect(page.locator('[role="alert"]').filter({hasText:'success'})).toBeVisible();
-        await page.locator('button[aria-label="Close"]').click();
+        //await page.locator('button[aria-label="Close"]').click();
         await pm.navigateTo().reloadPage();
         await page.screenshot({ path: 'screenshots/categorybeforedelete.png', fullPage: true });
 
         await pm.fillFormLayoutsPage().searchCategory('Delete');
         await pm.navigateTo().deleteActionCategory();
         // assertion
-        await expect(page.locator('[role="alert"]').filter({hasText:'item dihapus'})).toBeVisible();
+        await expect(page.locator('#chakra-toast-manager-top-right [role="alert"]').filter({ hasText: 'item dihapus' })).toBeVisible();
         await pm.navigateTo().reloadPage();
         await page.screenshot({ path: 'screenshots/categoryafterdelete.png', fullPage: true });
     });
