@@ -49,7 +49,6 @@ test.describe('Scenario Category Feature', () => {
         const pm = new PageManager (page);
         await pm.navigateTo().addCategory();
         await pm.fillFormLayoutsPage().createNewProduct('Delete', 'Delete Description');
-        //await page.locator('button[aria-label="Close"]').click();
         await pm.navigateTo().reloadPage();
         await page.screenshot({ path: 'screenshots/categorybeforedelete.png', fullPage: true });
 

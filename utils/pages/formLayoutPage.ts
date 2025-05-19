@@ -17,7 +17,6 @@ export class FormLayoutPage {
         await this.page.locator('#deskripsi').fill(description);
         await this.page.getByRole('button', { name: 'simpan' }).click();
         await this.page.waitForTimeout(1500);
-
     }
 
     async searchCategory(name: string): Promise<void> {
