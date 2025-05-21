@@ -27,3 +27,18 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 21
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Setup SSH Agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.PRIVATEDSA }}
+      - name: Check SSH folder content
+        run: ls -la ~/.ssh
+      - name: Check NodeJS version
+        run: node -v
+      - name: rsync connection
+        run: rsync -e "ssh -o StrictHostKeyChecking=no" -arvc * ${{secrets.USERDEV}}@${{secrets.SERVERDEV}}:/home/aditp/playwright-github/
